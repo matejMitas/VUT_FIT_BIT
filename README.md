@@ -57,13 +57,13 @@ Zdrojové kódy a podklady mých projektům během studia na FIT. Některé proj
 
 ## 3BIT
 ##### Zimní
-* [IIS](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/2BIT/letn%C3%AD/ICP)
+* [IIS](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/3BIT/zimn%C3%AD/IIS)
   * Projekt - **30/30**
-* [IMP](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/2BIT/letn%C3%AD/ICP)
+* [IMP](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/3BIT/zimn%C3%AD/IMP)
   * Projekt - **13.7/14**
-* [IMS](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/2BIT/letn%C3%AD/ICP)
+* [IMS](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/3BIT/zimn%C3%AD/IMS)
   * Projekt - **22/20**
-* [ISA](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/2BIT/letn%C3%AD/ICP)
+* [ISA](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/3BIT/zimn%C3%AD/ISA)
   * Projekt - **10/20**
 
 ##### Letní
