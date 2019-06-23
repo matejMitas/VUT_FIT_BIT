@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                window.onbeforeunload = function() { ws = null }
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link');
+                    for (var i = 0; i < links.length;i++) {
+                    var link = links[i];
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) {
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,'');
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+  
+  <link rel='stylesheet' href='assets/css/normalize.css'>
+<link rel='stylesheet' href='assets/css/style.css'>
+  <script src='assets/js/jquery-1.8.3.min.js'></script>
+<script src='assets/js/app.js'></script>
+  
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <title>Autodoprava Šofi</title>
+  
+</head>
+
+<body>
+    <header class="header">
+        <div class="body__wrapper">
+
+            <div class="header__info">
+                <h3>Zavolejte nám</h3>
+                <a href="tel:+420123456789">+420 123 456 789</a>
+            </div>
+
+            <a href="index.html" class="current header__logo">
+                <img 
+                  src="assets/logo.png" 
+                  srcset="
+                    assets/logo.png, 
+                    assets/logo@2x.png 2x"
+                  alt="Logo">
+
+
+            </a>
+            
+            <nav class="header__nav">
+                <a href="doprava.html">služby</a>
+                <a href="cenik_nakladni.html">ceník</a>
+                <a href="kontakt.html">kontakt</a>
+            </nav>
+        </div>
+    </header>   
+
+  
+
+	<section class="hero hero__home">
+		<div class="body__wrapper">
+			<h1>převezeme.</h1>
+			<h1>cokoliv.</h1>
+			<h1>kamkoliv.</h1>
+		</div>
+	</section>
+
+	<main>
+		<div class="number_bar">
+			<div class="body__wrapper">
+				<ul>
+					<li>
+						<h3>51</h3>
+						<span>vozů</span>
+					</li>
+					<li>
+						<h3>103</h3>
+						<span>zaměstnanců</span>
+					</li>
+					<li>
+						<h3>50000+</h3>
+						<span>přepravených osob</span>
+					</li>
+					<li>
+						<h3>802841</h3>
+						<span>tun nákladu</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="body__wrapper text__section homepage">
+			<section>
+				<h2>O naší firmě</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Morbi scelerisque luctus velit. Mauris elementum mauris vitae tortor. Et harum quidem rerum facilis est et expedita distinctio. Nullam faucibus mi quis velit. In enim a arcu imperdiet malesuada. Aliquam erat volutpat. Integer pellentesque quam vel velit. Mauris tincidunt sem sed arcu. Integer imperdiet lectus quis justo. Nunc dapibus tortor vel mi dapibus sollicitudin.
+				</p>
+
+				<img src="assets/home.jpg" alt="Planeta zeme">
+
+				<p>
+					Etiam bibendum elit eget erat. Suspendisse nisl. Nunc dapibus tortor vel mi dapibus sollicitudin. Aliquam erat volutpat. Nam sed tellus id magna elementum tincidunt. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Aliquam in lorem sit amet leo accumsan lacinia. Ut tempus purus at lorem. Nullam rhoncus aliquam metus. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Praesent in mauris eu tortor porttitor accumsan. Integer in sapien. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Nulla est. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Praesent vitae arcu tempor neque lacinia pretium.
+				</p>
+			</section>
+			<aside>
+				<h2>Novinky</h2>
+				<button id="toggle_button">Zobrazit novinky</button>
+				<ul id="toggle_items" style="display: none">
+					<li>
+						<ul>
+							<li>4. dubna</li>
+							<li>Nové autobusy Mercedes</li>
+							<li>
+								<small>
+									Etiam bibendum elit eget erat. Suspendisse nisl. Nunc dapibus tortor vel mi dapibus sollicitudin. Aliquam erat volutpat.
+								</small>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>1. dubna</li>
+							<li>Pracovní nabídka - řidič kamionu</li>
+							<li>
+								<small>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								</small>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>15. března</li>
+							<li>Nový smluvní partner v Rumunsku</li>
+							<li>
+								<small>
+									Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+								</small>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>10. března</li>
+							<li>Nové autobusy Mercedes</li>
+							<li>
+								<small>
+									Etiam bibendum elit eget erat. Suspendisse nisl. Nunc dapibus tortor vel mi dapibus sollicitudin. Aliquam erat volutpat.
+								</small>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>8. února</li>
+							<li>Nové autobusy Mercedes</li>
+							<li>
+								<small>
+									Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Itaque earum rerum hic tenetur a sapiente delectus.
+								</small>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</aside>
+		</div>
+
+		
+		<div class="cta">
+			<div class="body__wrapper">
+				<div class="cta__text">
+					<h3>Chceš procestovat svět?</h3>
+					<p>přidej se k nám a splníme ti to!</p>
+				</div>
+				<div class="cta__button">
+					<a class="btn" href="kontakt.html">Zjistit více</a>
+				</div>
+				
+			</div>
+		</div>
+		
+
+		<div class="body__wrapper">
+			<div class="clients">
+				<img src="assets/client.jpg" alt="Planeta zeme">
+				<h2>František Šobér</h2>
+				<h3>Logistik firmy Pindel Handling</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+			</div>
+		</div>
+	</main>
+
+	<script>
+		
+		function read_cookies(seek_key) {
+			for (var item of document.cookie.split(';')) {
+				var [key, value] = item.split('=')
+				if (key === seek_key) {
+					return (value === 'true') ? true : false
+				}
+ 			}
+ 			return false;
+		}
+
+		function get_new_date() {
+			var date = new Date();
+  			date.setTime(date.getTime() + (86400 * 1000));
+  			return date.toUTCString();
+		}
+
+		$(function() {
+
+			var button_selector 	= '#toggle_button'
+			var items_selector 		= '#toggle_items'
+
+			var items_hidden 	= 'none'
+			var items_shown 	= 'block'
+
+			var cookie_key = 'is_toggled'
+
+			/*
+			Nastav podle cookie pokud je v ulozene
+			*/
+			if (read_cookies(cookie_key)) {
+				$(items_selector).css('display', items_shown);
+			}
+			/*
+			Ovladani tlacitka
+			*/
+			$(button_selector).on('click', function() {
+				/*
+				Nacteme si soucasny stav
+				*/
+				var curr_state = $(items_selector).css('display')
+				var expiry = `expires=${get_new_date()};`
+
+				if (curr_state === items_hidden) {
+					$(items_selector).css('display', items_shown);
+					document.cookie = `is_toggled=true;${expiry}`;
+
+				} else if (curr_state === items_shown) {
+					$(items_selector).css('display', items_hidden);
+					document.cookie = `is_toggled=false;${expiry}`;
+				}
+			})
+			// Handler for .ready() called.
+		});
+	</script>
+  
+<footer class="footer">
+	<div class="body__wrapper">
+		<a href="mapa_stranek.html">Mapa stránek</a>
+		<p>ŠOFI - autodoprava, 2019</p>
+	</div>
+</footer>
+
+</body>
+</html>

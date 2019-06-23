@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                window.onbeforeunload = function() { ws = null }
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link');
+                    for (var i = 0; i < links.length;i++) {
+                    var link = links[i];
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) {
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,'');
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+  
+  <link rel='stylesheet' href='assets/css/normalize.css'>
+<link rel='stylesheet' href='assets/css/style.css'>
+  <script src='assets/js/jquery-1.8.3.min.js'></script>
+<script src='assets/js/app.js'></script>
+  
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <title>Autodoprava Šofi</title>
+  
+</head>
+
+<body>
+    <header class="header">
+        <div class="body__wrapper">
+
+            <div class="header__info">
+                <h3>Zavolejte nám</h3>
+                <a href="tel:+420123456789">+420 123 456 789</a>
+            </div>
+
+            <a href="index.html" class="current-parent header__logo">
+                <img 
+                  src="assets/logo.png" 
+                  srcset="
+                    assets/logo.png, 
+                    assets/logo@2x.png 2x"
+                  alt="Logo">
+
+
+            </a>
+            
+            <nav class="header__nav">
+                <a href="doprava.html">služby</a>
+                <a href="cenik_nakladni.html">ceník</a>
+                <a href="kontakt.html">kontakt</a>
+            </nav>
+        </div>
+    </header>   
+
+  
+
+  <section>
+    <!-- Write your HTML! -->
+    <div class="body__wrapper">
+    	<div class="text text__wrapper">
+    		<h1>Ceník</h1>
+   			<p>Níže si prosím prohlédněte orientační ceník našich služeb. Samozřejmě jsme schopni realizovat individuální přání a potřeby</p>
+   			<a class="btn" href="kontakt.html">Kontaktujte nás</a>
+    	</div>
+
+        <nav class="text__price">
+            <a href="cenik_nakladni.html">Nákladní doprava</a>
+            <a href="cenik_osobni.html" class="current text__active">Osobní doprava</a>
+        </nav>
+
+		<h4>Osobní doprava</h4>
+
+    	<table>
+    		<thead>
+    			<tr>
+    				<th>obj. číslo</th>
+    				<th>počet osob</th>
+    				<th>třída vozidel</th>
+    				<th>noční</th>
+    				<th>cena (bez DPH)</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td>4804752</td>
+    				<td>3-5</td>
+    				<td>3.</td>
+    				<td class="no">NE</td>
+    				<td>500</td>
+    			</tr>
+    			<tr>
+    				<td>4804755</td>
+    				<td>5</td>
+    				<td>2.</td>
+    				<td class="yes">ANO</td>
+    				<td>1500</td>
+    			</tr>
+    			   <tr>
+    				<td>4804722</td>
+    				<td>5</td>
+    				<td>1.</td>
+    				<td class="no">NE</td>
+    				<td>2300</td>
+    			</tr>
+    			<tr>
+    				<td>4804788</td>
+    				<td>15</td>
+    				<td>3.</td>
+    				<td class="no">NE</td>
+    				<td>500</td>
+    			</tr>
+    			<tr>
+    				<td>4804784</td>
+    				<td>30</td>
+    				<td>2.</td>
+    				<td class="yes">ANO</td>
+    				<td>8500</td>
+    			</tr>
+    			<tr>
+    				<td>4804789</td>
+    				<td>60</td>
+    				<td>3.</td>
+    				<td class="no">NE</td>
+    				<td>12500</td>
+    			</tr>
+    		</tbody>
+    	</table>
+	</div>
+  </section>
+  
+<footer class="footer">
+	<div class="body__wrapper">
+		<a href="mapa_stranek.html">Mapa stránek</a>
+		<p>ŠOFI - autodoprava, 2019</p>
+	</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                window.onbeforeunload = function() { ws = null }
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link');
+                    for (var i = 0; i < links.length;i++) {
+                    var link = links[i];
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) {
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,'');
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+  
+  <link rel='stylesheet' href='assets/css/normalize.css'>
+<link rel='stylesheet' href='assets/css/style.css'>
+  <script src='assets/js/jquery-1.8.3.min.js'></script>
+<script src='assets/js/app.js'></script>
+  
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <title>Autodoprava Šofi</title>
+  
+</head>
+
+<body>
+    <header class="header">
+        <div class="body__wrapper">
+
+            <div class="header__info">
+                <h3>Zavolejte nám</h3>
+                <a href="tel:+420123456789">+420 123 456 789</a>
+            </div>
+
+            <a href="index.html" class="current-parent header__logo">
+                <img 
+                  src="assets/logo.png" 
+                  srcset="
+                    assets/logo.png, 
+                    assets/logo@2x.png 2x"
+                  alt="Logo">
+
+
+            </a>
+            
+            <nav class="header__nav">
+                <a href="doprava.html">služby</a>
+                <a href="cenik_nakladni.html">ceník</a>
+                <a class='current' href="kontakt.html">kontakt</a>
+            </nav>
+        </div>
+    </header>   
+
+  
+
+	<section class="hero hero__contact">
+		<div class="body__wrapper">
+			<div class="hero__text">
+				<h1>kontakt</h1>
+			</div>
+		</div>
+	</section>
+
+	<main>
+		<div class="body__wrapper">
+		<form class="form" role="form" method="post"">
+			<div class="form__left">
+				<input type="email" placeholder="váš e-mail" required>
+				<input type="text" placeholder="vaše jméno" required>
+				<input type="tel" placeholder="vaš telefon" required>
+
+				<span>
+					<label>
+						<input type="radio" name="volba_osobni" id="volba" value="osobni" required>
+	            		Osobní doprava
+		            </label>
+
+		            <label>
+		            	<input type="radio" name="volba_osobni" id="volba" value="nakladni" required>
+		            	Nákladní doprava
+		            </label>
+				</span>
+				
+			</div>
+			
+			<div class="form__right">
+				<textarea type="textarea" name="comments" id="comments" placeholder="Váš dotaz" maxlength="6000" rows="10" required></textarea>
+			</div>
+
+
+
+			<input class="btn" type="submit" value='Odeslat'>
+		</form>
+		</div>
+	</main>
+  
+<footer class="footer">
+	<div class="body__wrapper">
+		<a href="mapa_stranek.html">Mapa stránek</a>
+		<p>ŠOFI - autodoprava, 2019</p>
+	</div>
+</footer>
+
+</body>
+</html>
