@@ -70,3 +70,7 @@ Zdrojové kódy a podklady mých projektům během studia na FIT. Některé proj
 * [ITW](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/3BIT/letn%C3%AD/ITW)
   * Projekt 1 - **19/20**
   * Projekt 1 - **30/30**
+
+##### Bakalářská práce
+* [IBT](https://github.com/matejMitas/VUT_FIT-bakalarka)
+  * Obhájeno na **C**
