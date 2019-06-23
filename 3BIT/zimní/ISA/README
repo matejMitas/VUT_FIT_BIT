@@ -1,0 +1,3 @@
+omezeni:
+pouze UDP pakety
+podporovane (A, AAAA, NS, PTR, CNAME, DNSSEC, SOA, TXT, SPF)

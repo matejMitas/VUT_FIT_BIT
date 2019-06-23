@@ -1,0 +1,41 @@
+.TH dns-export
+.SH NAME
+dns-export \-> nastroj pro zpracovani DNS komunikace s vystupem ve formatu pro nastroj Syslog.
+
+
+.SH SYNOPSIS
+.B dns-export [\-s SERVER] [\-t TIMEOUT] [\-i INTERFACE] [\-r READ]
+.SH OPTIONS
+
+.TP
+.BR \-s "\t"\fISERVER\fR
+Adresa serveru, na jehoz portu 514 je spusten naslouchac zprav typu Syslog.
+.TP
+.BR \-t "\t"\fITIMEOUT\fR
+Volitelny prepinac pro nastaveni intervalu odeslani zpravy na serveru (pouze priodchytavan zive komunikace, standartne (60s))
+.TP
+.BR \-i "\t"\fIINTERFACE\fR
+Sitove rozhrani, nad nimz je realizovano odposlouchavani.
+.TP
+.BR \-r "\t"\fRREAD\fR
+Zpracuje soubor typu .pcap, obsahujici log site.
+
+
+
+.SH DESCRIPTION
+
+Nastroj pro zpracovani DNS paketu do vypisu na Syslog.
+Omezeni: bez TCP a DNSSEC, spatna prace s uvolnovanim pameti, DB nepocita count.
+
+.B Zdrojove soubory
+isa-db.h
+isa-error.c
+isa-parser.c
+isa-project.c
+isa-structs.h
+isa-args.c
+isa-db.c
+isa-defines.h
+isa-error.h
+isa-parser.h
+isa-project.h

@@ -1,0 +1,40 @@
+.error {
+	.layout__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: calc(100vh - #{$sizing--header} - #{$sizing--footer});
+	}
+
+	&__wrapper {
+		//background: red;
+		IMG {
+			width: 300px;
+			opacity: .5;
+			margin: 0 auto;
+		}
+
+		H1 {
+			margin: 0;
+			margin-top: 40px;
+		}
+
+		A {
+			display: block;
+			margin-top: 60px;
+			text-decoration: none;
+			background: grey;
+			padding: 20px;
+			color: white;
+			border-radius: 10px;
+			transition: background .25s;
+
+			&:hover {
+				transition: background .45s;
+				background: #333;
+			}
+		}
+
+		text-align: center;
+	}
+}

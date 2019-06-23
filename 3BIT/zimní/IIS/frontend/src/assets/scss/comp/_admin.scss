@@ -1,0 +1,160 @@
+.admin {
+	background: white;
+	min-height: calc(100vh - #{$sizing--header} - #{$sizing--footer});
+
+	&__passwordCheck {
+		display: block;
+		margin-bottom: 15px;
+	}
+
+	&__start {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		&__text {
+			padding: 50px 0;
+
+			H1 {
+				padding: 0;
+				margin: 0;
+			}
+
+			SMALL {
+				text-align: center;
+				display: block;
+			}
+		}
+
+		NAV, &__text {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__select {
+		display: flex;
+		A {
+			background: grey;
+			flex: 1 1 calc(33% - 20px);
+			margin-right: 10px;
+			display: flex;
+			align-items: center;
+			justify-content:center;
+			text-align: center;
+			text-decoration: none;
+			color: white;
+			height: 300px;
+
+			&:hover {
+				background: black;
+			}
+
+			SPAN {
+				text-transform: uppercase;
+				font-size: 1.25em;
+			}
+		}
+	}
+
+	&__userInfo {
+		A {
+			margin-top: 50px;
+		}
+	}
+
+	&__buttons {
+		a {
+			margin-right: 20px;
+		}
+	}
+
+	&__table {
+		width: 100%;
+		margin-top: 50px;
+		border: none;
+
+		TD {
+			padding: 10px;
+		}
+
+		THEAD {
+			TR {
+				text-align: left;
+
+				TH {
+					color: #999;
+					border-bottom: 1px solid #bbb;	
+					padding: 5px 5px 20px 5px;			
+
+					&:last-of-type {
+						text-align: right;
+					}
+				}
+			}
+		}
+
+		TBODY TR {
+			&:nth-of-type(2n) {
+				background: #eee;
+			}
+
+			TD {
+				&:nth-of-type(3) {
+					font-size: 0.8em;
+					text-transform: uppercase;
+				}
+
+				&:nth-of-type(n+4) {
+					//width: 150px;
+					text-align: right;
+					BUTTON {
+						margin: 0 5px;
+					}
+				}
+			}
+		}
+	}
+	
+
+
+	UL {
+		list-style: none;
+		padding: 0;
+	}
+
+	BUTTON {
+		padding: 10px;
+	}
+
+	FORM {
+		max-width: 400px;
+		width: 100%;
+		margin: 0 auto 50px auto;
+	}
+
+	H1 {
+		padding-bottom: 10px;
+		text-align: center;
+	}
+
+	H3 {
+		margin-top: 15px;
+	}
+
+	&__list {
+		padding: 10px 0;
+
+		&:nth-of-type(2n) {
+			background: #eee;
+		}
+
+		LI {
+			display: inline-block;
+			margin-right: 10px;
+
+			&.admin__list__button {
+
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+.footer {
+	background: $footer--brown;
+	color: rgba(255,255,255,0.4);
+	text-align: center;
+
+	&__inner {
+		height: $sizing--footer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

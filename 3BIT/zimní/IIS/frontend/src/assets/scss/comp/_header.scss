@@ -1,0 +1,93 @@
+.header {
+    background: $header--greyLight;
+    width: 100%;
+
+    &__inner {
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    	height: $sizing--header;
+    	position: relative;
+    }
+
+
+	&__info {
+		UL {
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+
+			LI {
+				font-size: 0.9em;
+				color: rgba(255,255,255,0.5);
+
+				&:first-of-type {
+					font-size: 1em;
+					margin-bottom: 3px;
+					color: rgba(255,255,255,1);
+				}
+			}
+		}
+		
+	}
+	&__logo {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&__control {
+		display: flex;
+		A {
+			color: white;
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+			opacity: .75;
+			margin-left: 35px;
+			transition: all .45s;
+
+			&:hover, &.active {
+				opacity: 1;
+				transition: all .25s;
+			}
+
+			IMG {
+	    		width: 32px;
+	    		margin-right: 10px;
+	    	}
+
+	    	H6 {
+	    		padding: 0;
+	    		margin: 0;
+	    		//background: red;
+	    	}
+
+	    	&--single {
+
+	    	}
+
+	    	&--double {
+	    	}
+
+	    	// SMALL {
+	    	// 	font-size: 0.7em;
+	    	// 	display: block;
+	    	// 	text-align: center;
+	    	// 	margin-top: 9px;
+	    	// 	font-weight: 700;
+	    	// 	text-transform: uppercase;
+	    	// }
+		}
+	}
+
+
+	.opened {
+		color: lighten(red, 30%);
+	}
+
+	.header__openHours {
+		margin-left: 5px;
+		transform: translateX(-2px);
+	}
+}

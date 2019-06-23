@@ -1,0 +1,12 @@
+.layout {
+	&__wrapper {
+		min-height: calc(100vh - #{$sizing--header} - #{$sizing--footer})
+	}
+
+	&__inner {
+		width: calc(100% - 40px);
+    	max-width: calc(1280px - 40px);
+    	margin: 0 auto;
+    	padding: 0 20px;
+	}
+}

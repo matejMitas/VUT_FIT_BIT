@@ -1,0 +1,129 @@
+@import "mixins.scss";
+@import "vars.scss";
+@import "layout.scss";
+
+@import "comp/_loader";
+@import "comp/_header";
+@import "comp/_footer";
+@import "comp/_productList";
+@import "comp/_subheader";
+@import "comp/_error";
+@import "comp/_login";
+@import "comp/_admin";
+
+body {
+	font-family: sans-serif;
+	//background: black;
+    background: $body--grey;
+	padding: 0;
+	margin: 0;
+}
+
+
+INPUT[type='email'], INPUT[type='text'], INPUT[type='password'], INPUT[type='number'], INPUT[type='tel'], TEXTAREA {
+      padding: 10px;
+      width: calc(100% - 20px);
+      border: 0;
+      box-shadow: inset 0 0 0 1px grey;
+      font-size: 1em;
+
+      &:focus {
+        outline: 0;
+        
+        box-shadow: inset 0 0 0 1px blue;
+        color: blue;
+      }
+    } 
+
+
+FORM {
+    LABEL {
+      display: block;
+      color: rgba(0,0,0,.5);
+
+      SPAN {
+        font-size: .9em;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+    }
+
+    // INPUT[type='submit'] {
+    //   margin: 0;
+    //   border-radius: 2.5px;
+    //   background: grey;
+    //   color: white;
+    //   padding: 10px 20px;
+    //   border: 0;
+    //   margin-top: 15px;
+    //   font-size: 1em;
+    //   display: block;
+
+    //   &:active {
+    //     background: red;
+    //   }
+    // }
+
+    :required {
+      background: #edf4ff;
+    } 
+  }
+
+H1, H2, H3 {
+  margin: 0;
+  padding: 0;
+}
+
+
+.button {
+  text-decoration: none;
+  font-size: 1em;
+  background: blue;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: navy;
+  }
+}
+
+.button__secondary {
+  text-decoration: none;
+  font-size: .8em;
+  background: grey;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: black;
+  }
+}
+
+
+.pdf__out {
+  border: 1px solid grey;
+
+  width: 210mm;
+  height: 297mm;
+
+  P {
+    margin: 20px;
+  }
+
+  &--bold {
+    font-weight: bolder;
+  }
+
+  UL {
+    margin: 20px;
+    padding-left: 0;
+    list-style: none;
+  }
+}
