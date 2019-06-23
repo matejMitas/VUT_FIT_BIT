@@ -33,7 +33,25 @@ Zdrojové kódy a podklady mých projektům během studia na FIT. Některé proj
 
 ## 2BIT
 ##### Zimní
+* [IAL](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/1BIT/letn%C3%AD/IJC)
+  * 1. domácí úloha - **8/10**
+  * 2. domácí úloha - **10/10** 
+* [INP](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/1BIT/letn%C3%AD/IJC)
+  * Projekt 1 - **10/10**
+  * Projekt 2 - **23/23** 
+* [ISS](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/1BIT/letn%C3%AD/IJC)
+  * Projekt - **5.5/12**
 ##### Letní
+* [IDS](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/1BIT/letn%C3%AD/IJC)
+  * Projekt - **28/34**
+* [IPK](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/1BIT/letn%C3%AD/IJC)
+  * Projekt č.1 - **20/20**
+  * Projekt č.2 - **14/20**
+* [IPP](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/1BIT/letn%C3%AD/IOS)
+  * Projekt 1 - **6/6**
+  * Projekt 2 - **13/15**
+* [IZG](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/1BIT/letn%C3%AD/IOS)
+  * Projekt - **18/18**
 
 ## 3BIT
 ##### Zimní

@@ -1,0 +1,162 @@
+{   
+    "operd": {
+        "move": [
+            ["var", "w"],
+            ["symb", [], 0]
+        ],
+        "createframe": [],
+        "pushframe": [],
+        "popframe": [],
+        "defvar": [
+            ["var", "c"]
+        ],
+        "call" : [
+            ["label"]
+        ],
+        "return": [],
+        "pushs": [
+            ["symb", [], 1]
+        ],
+        "pops": [
+            ["var", "w"]
+        ],
+        "add": [
+            ["var", "w"],
+            ["symb", ["float", "int"], 1],
+            ["symb", ["float", "int"], 1]
+        ],
+        "sub": [
+            ["var", "w"],
+            ["symb", ["float", "int"], 1],
+            ["symb", ["float", "int"], 1]
+        ],
+        "mul": [
+            ["var", "w"],
+            ["symb", ["float", "int"], 1],
+            ["symb", ["float", "int"], 1]
+        ],
+        "idiv": [
+            ["var", "w"],
+            ["symb", ["int"], 1],
+            ["symb", ["int"], 1]
+        ],
+        "lt":[
+            ["var", "w"],
+            ["symb", ["="], 1],
+            ["symb", ["="], 1]
+        ],
+        "gt":[
+            ["var", "w"],
+            ["symb", ["="], 1],
+            ["symb", ["="], 1]
+        ],
+        "eq":[
+            ["var", "w"],
+            ["symb", ["="], 1],
+            ["symb", ["="], 1]
+        ],
+        "and":[
+            ["var", "w"],
+            ["symb", ["bool"], 1],
+            ["symb", ["bool"], 1]
+        ],
+        "or":[
+            ["var", "w"],
+            ["symb", ["bool"], 1],
+            ["symb", ["bool"], 1]
+        ],
+        "not":[
+            ["var", "w"],
+            ["symb", ["bool"], 1]
+        ],
+        "int2char": [
+            ["var", "w"],
+            ["symb", ["int"], 1]
+        ],
+        "stri2int": [
+            ["var", "w"],
+            ["symb", ["string"], 1],
+            ["symb", ["int"], 1]
+        ],
+        "int2float": [
+            ["var", "w"],
+            ["symb", ["int"], 1]
+        ],
+        "float2int": [
+            ["var", "w"],
+            ["symb", ["float"], 1]
+        ],
+        "write": [
+            ["symb", [], 0]
+        ],
+        "read": [
+            ["var", "w"],
+            ["symb", ["type"], 1]
+        ],
+        "concat": [
+            ["var", "w"],
+            ["symb", ["string"], 0],
+            ["symb", ["string"], 0]
+        ],
+        "strlen": [
+            ["var", "w"],
+            ["symb", ["string"], 1]
+        ],
+        "getchar": [
+            ["var", "w"],
+            ["symb", ["string"], 1],
+            ["symb", ["int"], 1]
+        ],
+        "setchar": [
+            ["var", "w"],
+            ["symb", ["int"], 1],
+            ["symb", ["string"], 1]
+        ],
+        "type": [
+            ["var", "w"],
+            ["symb", [], 1]
+        ],
+        "label": [
+            ["label"]
+        ],
+        "jump": [
+            ["label"]
+        ],
+        "jumpifeq": [
+            ["label"],
+            ["symb", ["="], 1],
+            ["symb", ["="], 1]
+        ],
+        "jumpifneq": [
+            ["label"],
+            ["symb", ["="], 1],
+            ["symb", ["="], 1]
+        ],
+        "dprint": [
+            ["symb", [], 1]
+        ],
+        "break": [],
+
+
+        "adds":[]
+    },
+    "stack": {
+        "clears": 0,
+        "adds": 2,
+        "subs": 2,
+        "muls": 2,
+        "idivs": 2,
+        "lts": 2,
+        "gts": 2,
+        "eqs": 2,
+        "ands": 2,
+        "ors": 2,
+        "nots": 1,
+        "int2chars": 1,
+        "stri2int": 2,
+        "int2floats": 1,
+        "float2ints": 1,
+        "jumpifeqs": 3,
+        "jumpifneqs": 3
+    }
+}
