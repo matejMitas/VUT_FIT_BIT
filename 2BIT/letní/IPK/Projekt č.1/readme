@@ -1,0 +1,4 @@
+Veci, ktere nejsou 100%:
+	- prace s pameti a uvolnovani jednotlivych polozek
+	- vzajemna komunikace merlin/eva, pokud bezi server i klient na jednom z nich, 
+	  je to ok, ale pri vzajmne komunikaci obcas vykazuje znamky chybovosti
