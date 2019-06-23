@@ -1,0 +1,338 @@
+#!/bin/sh
+
+###################################
+#
+# projekt 1
+# Matej Mitas, FIT VUT, 2017
+#
+###################################
+
+###################################
+#
+# Run in POSIX mode
+#
+###################################
+POSIXLY_CORRECT=yes
+
+
+###################################
+#
+# Vars for main output
+#
+###################################
+FILES_COUNT=0
+DIRS_COUNT=0
+
+
+###################################
+#
+# Baseline vars
+#
+###################################
+TERMINAL_WIDTH=80
+
+
+###################################
+#
+# Read arguments
+#
+###################################
+NFLAG=0
+IFLAG=0
+IREGEX=""
+WORKING_PATH=$PWD
+
+while getopts "n i:" opt; do
+  case $opt in
+    n)
+      #echo "-n was triggered!"
+
+      if [ $NFLAG -eq 0 ]; then 
+	  	NFLAG=1
+	  else
+	  	>&2 echo "Multiple -n"
+	    exit 1
+	  fi
+      ;;
+    i)
+      if [ $IFLAG -eq 0 ]; then 
+	  	IFLAG=1
+	  	if [ $OPTARG == "-n" ]; then
+	  		>&2 echo "passed '-' or '--' as an argument"
+	    	exit 1
+	  	else
+	  		IREGEX=$OPTARG
+	  	fi
+	  else
+	  	>&2 echo "Multiple -i"
+	    exit 1
+	  fi
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument."
+      exit 1
+      ;;  
+    \?)
+      echo "Invalid option: -$OPTARG"
+      exit 1;
+      ;;
+  esac
+done
+
+# remove all the flag arguments
+shift "$((OPTIND - 1))"
+
+if [ $# -eq 1 ]; then 
+  WORKING_PATH=$1
+elif [ $# -gt 1 ]; then
+  >&2 echo "Too many arguments"
+  exit 1
+fi  
+
+
+###################################
+#
+# Terminal width
+#
+###################################
+
+if [ test ]; then
+	TERMINAL_WIDTH=$(tput cols)
+fi
+
+###################################
+#
+# File sizes
+#
+###################################
+get_file_size() {
+
+	if [ $IFLAG -eq 0 ]; then 
+		VAR=$( find "${WORKING_PATH}" -type f )
+	else
+		VAR=$( find "${WORKING_PATH}" -type f | egrep -v "${IREGEX}" )
+	fi 
+
+	FILE_SIZE="$(	echo "${VAR}" | 
+					tr "\n" "\0" | 
+					xargs -0 wc -c |
+					awk -v var="$NFLAG" -v len="$TERMINAL_WIDTH" -v files="$FILES_COUNT" 'BEGIN{ count = 0; }
+						{
+							# define width of terminal, minus 1 char at the end
+							term_width = len - 13;
+
+							if ($2 != "total") {
+								# loop to determine sizes
+								if ($1 < 100) {
+									SIZES[0]++;
+								} else if ($1 < 2^10) {
+									SIZES[1]++;
+								} else if ($1 < (2^10)*10) {
+									SIZES[2]++;
+								} else if ($1 < (2^10)*100) {
+									SIZES[3]++;
+								} else if ($1 < 2^20) {
+									SIZES[4]++;
+								} else if ($1 < (2^20)*10) {
+									SIZES[5]++;
+								} else if ($1 < (2^20)*100) {
+									SIZES[6]++;
+								} else if ($1 < 2^30) {
+									SIZES[7]++;
+								} else if ($1 >= 2^30) {
+									SIZES[8]++;
+								}
+
+								files++;
+							}
+
+						} END{
+
+							# Define file types
+							ARR[0] = "<100 B  "; 
+							ARR[1] = "<1 KiB  ";
+							ARR[2] = "<10 KiB ";
+							ARR[3] = "<100 KiB";
+							ARR[4] = "<1 MiB  ";
+							ARR[5] = "<10 MiB ";
+							ARR[6] = "<100 MiB";
+							ARR[7] = "<1 GiB  ";
+							ARR[8] = ">=1 GiB ";
+
+							#printf "All files: %d\n", files
+							printf "File size histogram:\n"
+
+							# set the max size	
+							max = SIZES[0];
+
+							# find max
+							for (i = 0; i < 9; i++) {
+								if (SIZES[i] > max) {
+									max = SIZES[i]
+								}
+							}
+
+							# print to the terminal
+							for (i = 0; i < 9; i++) {
+								printf "  %s: ", ARR[i]
+
+								if (files > 0) {
+									if (var && max > term_width) {
+										width = SIZES[i]*term_width/max
+
+										for (j = 0; j < width; j++) {
+											printf "#";
+										}
+									} else {
+										for (j = 0; j < SIZES[i]; j++) {
+											printf "#"
+										}
+									}
+								}
+								
+								printf "\n"
+							}
+					}'
+	)"
+}
+
+###################################
+#
+# File types
+#
+###################################
+get_file_type() {
+
+	if [ $IFLAG -eq 0 ]; then 
+		VAR=$( find "${WORKING_PATH}" -type f )
+	else
+		VAR=$( find "${WORKING_PATH}" -type f | egrep -v "${IREGEX}" )
+	fi 
+
+	FILE_TYPE="$(	echo "${VAR}" |
+					file -b -f - |
+					sort |
+					cut -c 1-40 | 
+					uniq -c |
+					sort -r |
+					awk -v var="$NFLAG" -v len="$TERMINAL_WIDTH" 'BEGIN{ count = 0; max = 0; FS=" " }
+						{
+							# first most common items
+							if (count < 10) {
+								# set max count since its ordered
+								if (count == 0) {
+									max = $1;
+								}
+
+								# init len var
+								term_width = len - 48;
+								# count
+								COUNT[count] = $1;
+
+								#printf "%d\n", $1
+								# reset first
+								$1 = " "
+								# store all
+								TYPES[count] = $0;
+
+								#printf "%s\n", $0
+								count++;
+							}
+
+						} END{
+							# find max
+							for (i = 0; i < count; i++) { 
+								if (COUNT[i] > max) {
+									max = COUNT[i]
+								}
+							}
+
+							# loop through line to get the result
+							for (i = 0; i < count; i++) {
+								
+								# if it fits to the terminal window
+								if (length(TYPES[i]) == 42) {
+									printf "%s...: ", TYPES[i]
+								} else {
+									printf "%-45s: ", TYPES[i]
+								}
+
+								# determine whenever the flag was used or not
+								if (var && max > term_width) {
+									width = COUNT[i]*term_width/max;
+
+									for (j = 0; j < width; j++) {
+										printf "#";
+									}
+									
+								} else {
+									for (j = 0; j < COUNT[i]; j++) {
+										printf "#";
+									}
+								}
+
+								# add new line at the end
+								printf "\n";
+							}
+
+						}'
+	)"
+}	
+
+###################################
+#
+# Find folders
+#
+###################################
+
+if [ $IFLAG -eq 0 ]; then 
+	DIRS_COUNT=$(find $WORKING_PATH -type d | wc -l)
+else
+	DIRS_COUNT=$(find $WORKING_PATH -type d | egrep -v $IREGEX | wc -l)
+fi  
+
+###################################
+#
+# Find files
+#
+###################################
+
+
+if [ $IFLAG -eq 0 ]; then 
+	FILES_COUNT=$(find $WORKING_PATH -type f | wc -l)
+else
+	FILES_COUNT=$(find $WORKING_PATH -type f | egrep -v $IREGEX | wc -l)
+fi  
+
+
+###################################
+#
+# Check if dir even exists
+#
+###################################
+
+if [ -d "$WORKING_PATH" ]; then
+
+	get_file_size
+
+	if [ $FILES_COUNT -gt 0 ]; then 
+		get_file_type
+	fi
+		
+	###################################
+	#
+	# Print out vars
+	#
+	###################################
+	printf 'Root directory: %s\n' $WORKING_PATH
+	printf 'Directories: %d\n' $DIRS_COUNT
+	printf 'All files: %d\n' $FILES_COUNT
+	echo "${FILE_SIZE}"
+	# print out baseline text
+	printf "File type histogram:\n" 
+	# print out file sizes
+	echo "${FILE_TYPE}"
+else
+	>&2 echo "Entered path doesn't exist"
+	exit 1
+fi

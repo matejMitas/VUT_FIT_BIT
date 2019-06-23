@@ -12,6 +12,24 @@ Zdrojové kódy a podklady mých projektům během studia na FIT. Některé proj
   * Projekt 3 - 9/10
   * Dokumentace zdrojového kódu - 4/4
 ##### Letní
+* IJC
+  * DU1 - 9/15
+  * DU2 - 12/15 
+* INC
+  * Projekt - 20/20
+* IOS
+  * Projekt 1 - 15/15
+  * Projekt 2 - 8/15
+* ISU
+  * Cvičení - 18.5/24
+* ITY
+  * Projekt 1 - 9.2/10
+  * Projekt 2 - 5/15
+  * Projekt 3 - 15/15
+  * Projekt 4 - 14/15
+  * Projekt 5 - 12/15
+
+
 
 ### 2BIT
 
