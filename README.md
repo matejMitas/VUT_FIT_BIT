@@ -67,6 +67,6 @@ Zdrojové kódy a podklady mých projektům během studia na FIT. Některé proj
   * Projekt - **10/20**
 
 ##### Letní
-* [ITW](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/3BIT/zimn%C3%AD/ISA)
+* [ITW](https://github.com/matejMitas/VUT_FIT_BIT/tree/master/3BIT/letn%C3%AD/ITW)
   * Projekt 1 - **19/20**
   * Projekt 1 - **30/30**
